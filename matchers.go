@@ -14,7 +14,7 @@ type Matcher interface {
 type ExtMatcher string
 
 func (e ExtMatcher) Matches(s string) bool {
-	return strings.HasSuffix(s, string(e))
+	return filepath.Ext(s) == string(e)
 }
 
 var numStartRegex = regexp.MustCompile(`\A\d+`)
