@@ -24,7 +24,18 @@ Simply run the following commands:
 * `cd $GOPATH/src/github.com/SlyMarbo/go-rename`
 * `go install`
 
-Alternatively, use the pre-build binary for your operating system and architecture from the `bin` directory.
+Alternatively, use a pre-build binary:
+
+- OS X:    [32-bit][osx_32], [64-bit][osx_64]
+- Linux:   [32-bit][linux_32], [64-bit][linux_64]
+- Windows: [32-bit][windows_32], [64-bit][windows_64]
+
+[osx_32]: https://github.com/SlyMarbo/go-rename/blob/master/bin/osx_x86/go-rename?raw=true
+[osx_64]: https://github.com/SlyMarbo/go-rename/blob/master/bin/osx_amd64/go-rename?raw=true
+[linux_32]: https://github.com/SlyMarbo/go-rename/blob/master/bin/linux_x86/go-rename?raw=true
+[linux_64]: https://github.com/SlyMarbo/go-rename/blob/master/bin/linux_amd64/go-rename?raw=true
+[windows_32]: https://github.com/SlyMarbo/go-rename/blob/master/bin/windows_x86/go-rename?raw=true
+[windows_64]: https://github.com/SlyMarbo/go-rename/blob/master/bin/windows_amd64/go-rename?raw=true
 
 ## Using go-rename
 
