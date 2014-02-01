@@ -59,7 +59,9 @@ func NewRegexMatcher(s string) *RegexMatcher {
 		}
 
 		switch s[i+1] {
-		case 'd', 'D', 's', 'S', 'w', 'W':
+		case 'd', 'D', 's', 'S', 'w', 'W', // Character classes.
+			'A', 'b', 'B', 'z', // Position indicators.
+			'a', 'f', 'n', 'r', 'v', '.', '*', '?': // Escape sequences.
 			buf.Write([]byte{'\\', s[i+1]})
 			s = s[i+2:]
 			continue
