@@ -2,6 +2,20 @@
 
 A simple tool for clever mass-renaming files.
 
+## Table of Contents
+
+- [Installing go-rename](#installing-go-rename)
+- [Using go-rename](#using-go-rename)
+	- [Simple strings](#simple-strings)
+	- [Extensions](#extensions)
+	- [Recursing](#recursing)
+	- [Multiple replacements per file](#multiple-replacements-per-file)
+	- [Regex replacements](#regex-replacements)
+	- [Advanced regex replacements](#advanced-regex-replacements)
+	- [Numerical operations](#numerical-operations)
+		- [Zero padding](#zero-padding)
+	- [Verbosity](#verbosity)
+
 ## Installing go-rename
 
 Simply run the following commands:
