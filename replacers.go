@@ -74,6 +74,7 @@ func NewRegexReplacer(s string) *RegexReplacer {
 			i++
 		}
 		groups = append(groups, group)
+		s = s[i:]
 	}
 
 	r := new(RegexReplacer)
