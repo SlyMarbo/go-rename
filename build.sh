@@ -14,3 +14,4 @@ mkdir -p "bin/windows_x86" "bin/windows_amd64"
 GOOS=windows GOARCH=386 go build -o bin/windows_x86/go-rename.exe
 GOOS=windows GOARCH=amd64 go build -o bin/windows_amd64/go-rename.exe
 
+go install
