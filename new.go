@@ -11,7 +11,7 @@ import (
 )
 
 var opts struct {
-	Ext         string       `long:"ext" description:"Restrict matches to those with the given file extension."`
+	Ext         func(string) `long:"ext" description:"Restrict matches to those with the given file extension."`
 	From        func(string) `long:"from" description:"Initial form (string)."`
 	FromRegex   func(string) `long:"from-regex" description:"Initial form (regex)."`
 	To          func(string) `long:"to" description:"Replacement (string)."`
@@ -19,6 +19,7 @@ var opts struct {
 	NumberStart func(string) `long:"number-start" description:"Perform a maths op (eg -4) on the first number found."`
 	NumberEnd   func(string) `long:"number-end" description:"Perform a maths op (eg -4) on the last number found."`
 
+	List    bool `short:"l" long:"list" description:"Simply list all files matched."`
 	Recurse bool `short:"R" description:"Recurse into child folders."`
 	Verbose bool `short:"v" long:"verbose" description:"Enable verbose output."`
 	Testing bool `short:"t" long:"test" description:"Print renaming ops without performing them."`
@@ -54,6 +55,10 @@ func main() {
 	}
 
 	// Set up replacer and matcher functions.
+	opts.Ext = func(s string) {
+		ext = ExtMatcher(s)
+		debug("Using extension matcher.")
+	}
 	opts.From = func(s string) {
 		checkMatcher()
 		fromString = s
@@ -112,13 +117,7 @@ func main() {
 		dir = args[0]
 	}
 
-	// Extension
-	if opts.Ext != "" {
-		ext = ExtMatcher(opts.Ext)
-		debug(fmt.Sprintf("Using extension matcher %q.", opts.Ext))
-	}
-
-	if replacer == nil {
+	if replacer == nil && !opts.List {
 		debug(`Warning: Neither --to nor --to-regex used. Using --to "".`)
 		replacer = StringReplacer("")
 	}
@@ -151,6 +150,10 @@ func main() {
 			}
 
 			if matcher.Matches(name) {
+				if opts.List {
+					fmt.Println(path)
+					continue
+				}
 				debug("Matching file: " + path)
 				to := replacer.Replace(name, fromString, fromRegex)
 				match := new(File)
@@ -161,6 +164,10 @@ func main() {
 		}
 
 		dirs = dirs[1:]
+	}
+
+	if opts.List {
+		return
 	}
 
 	// Process matching files.

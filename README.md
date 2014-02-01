@@ -42,6 +42,9 @@ Alternatively, use a pre-built binary:
 Renaming operations can be given a dry-run with the `-t` or `--test` flags, which print which operations
 would have been performed without actually changing the filesystem.
 
+Similarly, the `-l` or `--list` flag can be used to list which files would have been renamed without making
+any changes.
+
 ### Simple strings
 
 Simple renaming is performed with the `--from` and `--to` flags, which use plain strings. For example,
