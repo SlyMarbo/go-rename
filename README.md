@@ -26,9 +26,9 @@ Simply run the following commands:
 
 Alternatively, use a pre-built binary:
 
-| OS X | [32-bit][osx_32] | [64-bit][osx_64] |
-| Linux | [32-bit][linux_32] | [64-bit][linux_64] |
-| Windows | [32-bit][windows_32] | [64-bit][windows_64] |
+- **OS X**:    [32-bit][osx_32], [64-bit][osx_64]
+- **Linux**:   [32-bit][linux_32], [64-bit][linux_64]
+- **Windows**: [32-bit][windows_32], [64-bit][windows_64]
 
 [osx_32]: https://github.com/SlyMarbo/go-rename/blob/master/bin/osx_x86/go-rename?raw=true
 [osx_64]: https://github.com/SlyMarbo/go-rename/blob/master/bin/osx_amd64/go-rename?raw=true
