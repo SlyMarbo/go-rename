@@ -48,14 +48,14 @@ func NewRegexMatcher(s string) *RegexMatcher {
 	for {
 		i := strings.Index(s, "%")
 		if i < 0 {
+			buf.WriteString(s)
 			break
 		}
 
 		buf.WriteString(s[:i])
 
 		if len(s) == i+1 {
-			buf.WriteString("%")
-			break
+			complain("Error: Could not parse regex. % is not a valid combination.")
 		}
 
 		switch s[i+1] {

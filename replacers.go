@@ -43,6 +43,7 @@ func NewRegexReplacer(s string) *RegexReplacer {
 	for {
 		i := strings.Index(s, "%")
 		if i < 0 {
+			parts = append(parts, s)
 			break
 		}
 
