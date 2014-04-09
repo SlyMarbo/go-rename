@@ -25,6 +25,7 @@ var opts struct {
 	Testing bool `short:"t" long:"test" description:"Print renaming ops without performing them."`
 	ZeroPad int  `short:"z" long:"zero-pad" description:"Pad --number-* results with zeros to the given width."`
 	Num     int  `short:"n" default:"1" description:"Number of times to perform each op per filename (-1 for unlimited)."`
+	Folders bool `short:"f" description:"Match folders as well as files."`
 }
 
 type File struct {
@@ -142,7 +143,9 @@ func main() {
 				if opts.Recurse {
 					dirs = append(dirs, path)
 				}
-				continue
+				if !opts.Folders {
+					continue
+				}
 			}
 
 			if ext != nil && !ext.Matches(name) {
